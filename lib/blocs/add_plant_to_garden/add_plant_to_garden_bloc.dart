@@ -6,7 +6,6 @@ import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'add_plant_to_garden_event.dart';
-
 part 'add_plant_to_garden_state.dart';
 
 class AddPlantToGardenBloc
@@ -20,6 +19,7 @@ class AddPlantToGardenBloc
     AddPlantToGardenEvent event,
   ) async* {
     final pref = await SharedPreferences.getInstance();
+
     final username = pref.getString("username");
     try {
       if (event is CheckHasPlant) {
